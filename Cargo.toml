@@ -2,7 +2,7 @@
 name = "derive-overwrites"
 description = "An attribute macro to create a trait from an impl block, to allow overwriting functions in a way that is compatible with using an external wrapper struct"
 license-file = "LICENSE"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 repository = "https://github.com/hardliner66/derive-overwrites"
 
