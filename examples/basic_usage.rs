@@ -1,9 +1,9 @@
+use derive_overwrites::*;
+
 use std::{
     fmt::Debug,
     ops::{Deref, DerefMut},
 };
-
-use derive_overwrites::*;
 
 struct MyWrapper<T> {
     pub additional_data: String,
@@ -65,7 +65,6 @@ impl MyStruct {
 //         self.count += amount;
 //     }
 // }
-//
 
 // By specifying the type parameter, we can create functions of the same
 // name as the original, which works on the MyWrapper version instead of
