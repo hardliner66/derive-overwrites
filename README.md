@@ -114,8 +114,8 @@ impl MyStruct {
     }
 }
 
-// // Alternatively, use #[generate_overwrites(all = false)] to disable all overwrites by default
-// #[generate_overwrites(all = false)]
+// // Alternatively, use #[generate_overwrites(default = "skip")] to disable all overwrites by default
+// #[generate_overwrites(default = "skip")]
 // impl MyStruct {
 //     pub fn increment(&mut self) {
 //         self.count += 1;
@@ -128,3 +128,11 @@ impl MyStruct {
 //     }
 // }
 ```
+
+## Customization
+
+The attribute macro `#[generate_overwrites]` can be customized with the following options:
+
+- `name = "<name>`: Specifies the name of the generated trait. Defaults to the name of the original type with "Overwrites" appended.
+- `default = ["skip" | "overwrite"]`: Specifies the default behavior for functions that are not explicitly marked with `#[skip]` or `#[overwrite]`. Defaults to `overwrite`.
+- `passthrough`: Specifies whether to pass through the original function's signature and body. Defaults to `false`.

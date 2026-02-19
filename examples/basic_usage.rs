@@ -52,8 +52,8 @@ impl MyStruct {
     }
 }
 
-// // Alternatively, use #[generate_overwrites(all = false)] to disable all overwrites by default
-// #[generate_overwrites(all = false)]
+// // Alternatively, use #[generate_overwrites(default = "skip")] to disable all overwrites by default
+// #[generate_overwrites(default = "skip")]
 // impl MyStruct {
 //     pub fn increment(&mut self) {
 //         self.count += 1;
@@ -61,6 +61,32 @@ impl MyStruct {
 
 //     // and explicitly include the functions you want with #[overwrite]
 //     #[overwrite]
+//     pub fn increment_by(&mut self, amount: usize) {
+//         self.count += amount;
+//     }
+// }
+
+// // implement the trait for the struct, so it can be used where the trait is expected
+// #[generate_overwrites(passthrough)]
+// impl MyStruct {
+//     #[skip]
+//     pub fn increment(&mut self) {
+//         self.count += 1;
+//     }
+
+//     pub fn increment_by(&mut self, amount: usize) {
+//         self.count += amount;
+//     }
+// }
+
+// // rename the trait
+// #[generate_overwrites(name = "MyCoolOverwrites")]
+// impl MyStruct {
+//     #[skip]
+//     pub fn increment(&mut self) {
+//         self.count += 1;
+//     }
+
 //     pub fn increment_by(&mut self, amount: usize) {
 //         self.count += amount;
 //     }
